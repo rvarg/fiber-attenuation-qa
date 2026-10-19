@@ -1,0 +1,131 @@
+{
+  "title": "Cálculo de pérdidas en un enlace",
+  "description": "Presupuesto de pérdidas, potencia recibida y margen del sistema.",
+  "shuffleQuestions": true,
+  "questions": [
+    {
+      "prompt": "¿Qué elementos se suman al calcular la pérdida total de un enlace pasivo?",
+      "options": [
+        {
+          "id": "a",
+          "text": "La pérdida de la fibra (α·L), la de los conectores y empalmes, y la de otros componentes pasivos"
+        },
+        {
+          "id": "b",
+          "text": "Solo la pérdida de la fibra"
+        },
+        {
+          "id": "c",
+          "text": "Solo la de conectores y empalmes"
+        },
+        {
+          "id": "d",
+          "text": "La dispersión cromática del enlace"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Todas las pérdidas se expresan en dB y se suman. La dispersión cromática afecta al ancho de banda, no a la pérdida de potencia."
+    },
+    {
+      "prompt": "¿Para qué se deja un margen del sistema (system margin) en un presupuesto de potencia?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Para cubrir envejecimiento, reparaciones, variaciones de temperatura y tolerancias de los componentes"
+        },
+        {
+          "id": "b",
+          "text": "Para aumentar la distancia máxima sin cambiar nada"
+        },
+        {
+          "id": "c",
+          "text": "Para compensar el esparcimiento de Rayleigh"
+        },
+        {
+          "id": "d",
+          "text": "Para convertir dB en nepers"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "El margen (típicamente de unos pocos dB) asegura que el enlace siga funcionando cuando las pérdidas reales superen ligeramente a las calculadas."
+    },
+    {
+      "type": "calc",
+      "prompt": "Un enlace de 40 km usa fibra de 0,22 dB/km, tiene 2 conectores de 0,5 dB cada uno y 8 empalmes de 0,1 dB cada uno. ¿Cuál es la pérdida total?",
+      "unit": "dB",
+      "answer": 10.6,
+      "decimals": 1,
+      "hint": "Pérdida total = α·L + (n.º de conectores × pérdida) + (n.º de empalmes × pérdida).",
+      "solution": [
+        "Fibra: 40 km × 0,22 dB/km = 8,8 dB.",
+        "Conectores: 2 × 0,5 dB = 1,0 dB.",
+        "Empalmes: 8 × 0,1 dB = 0,8 dB.",
+        "Total = 8,8 + 1,0 + 0,8 = 10,6 dB."
+      ]
+    },
+    {
+      "type": "calc",
+      "prompt": "Un transmisor entrega +3 dBm. El enlace tiene una pérdida total de 18,5 dB. ¿Qué potencia llega al receptor?",
+      "unit": "dBm",
+      "answer": -15.5,
+      "decimals": 1,
+      "toleranceAbs": 0.1,
+      "hint": "En dBm, restar las pérdidas en dB: P_rx = P_tx − pérdida.",
+      "solution": [
+        "P_rx (dBm) = P_tx (dBm) − pérdida total (dB).",
+        "P_rx = 3 − 18,5 = -15,5 dBm."
+      ]
+    },
+    {
+      "type": "calc",
+      "prompt": "Un enlace dispone de un presupuesto de pérdidas de 22 dB. La fibra tiene 0,25 dB/km; hay 2 conectores de 0,75 dB cada uno y 15 empalmes de 0,1 dB cada uno. ¿Cuál es la longitud máxima de fibra, sin margen adicional?",
+      "unit": "km",
+      "answer": 76,
+      "decimals": 0,
+      "hint": "Resta las pérdidas fijas del presupuesto y divide lo que queda entre α.",
+      "solution": [
+        "Pérdidas fijas: 2 × 0,75 + 15 × 0,1 = 1,5 + 1,5 = 3,0 dB.",
+        "Presupuesto disponible para la fibra: 22 − 3,0 = 19,0 dB.",
+        "L máx = 19,0 dB / 0,25 dB/km = 76 km."
+      ]
+    },
+    {
+      "type": "calc",
+      "prompt": "Un transmisor entrega −2 dBm y la sensibilidad del receptor es −28 dBm. La pérdida total del enlace es 21,4 dB. ¿Cuál es el margen del sistema?",
+      "unit": "dB",
+      "answer": 4.6,
+      "decimals": 1,
+      "toleranceAbs": 0.1,
+      "hint": "Presupuesto de potencia = P_tx − sensibilidad. Margen = presupuesto − pérdidas.",
+      "solution": [
+        "Presupuesto de potencia = P_tx − sensibilidad = −2 − (−28) = 26 dB.",
+        "Margen = 26 − 21,4 = 4,6 dB."
+      ]
+    },
+    {
+      "type": "calc",
+      "prompt": "Dos tramos de fibra en cascada: 12 km con 0,35 dB/km y 8 km con 0,40 dB/km (ambos a 1310 nm). ¿Cuál es la pérdida total de fibra?",
+      "unit": "dB",
+      "answer": 7.4,
+      "decimals": 1,
+      "hint": "Calcula la pérdida de cada tramo y súmalas en dB.",
+      "solution": [
+        "Tramo 1: 12 × 0,35 = 4,2 dB.",
+        "Tramo 2: 8 × 0,40 = 3,2 dB.",
+        "Total = 4,2 + 3,2 = 7,4 dB."
+      ]
+    },
+    {
+      "type": "calc",
+      "prompt": "Con una atenuación de 0,2 dB/km, ¿a qué distancia la potencia se reduce a la mitad?",
+      "unit": "km",
+      "answer": 15.05149978,
+      "decimals": 1,
+      "hint": "La mitad de la potencia son ≈ 3,01 dB de pérdida; divídelos entre α.",
+      "solution": [
+        "Reducir la potencia a la mitad equivale a 10·log₁₀(2) ≈ 3,01 dB.",
+        "Distancia = 3,01 dB / 0,2 dB/km ≈ 15,1 km."
+      ]
+    }
+  ]
+}

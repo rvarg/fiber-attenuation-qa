@@ -1,0 +1,142 @@
+{
+  "title": "Definición y unidades de la atenuación",
+  "description": "dB/km, nepers, dBm y cálculos básicos de potencia.",
+  "shuffleQuestions": true,
+  "questions": [
+    {
+      "prompt": "¿Qué describe la atenuación en una fibra óptica?",
+      "options": [
+        {
+          "id": "a",
+          "text": "La reducción de la potencia óptica de la señal a medida que se propaga por la fibra"
+        },
+        {
+          "id": "b",
+          "text": "El ensanchamiento en el tiempo de los pulsos transmitidos"
+        },
+        {
+          "id": "c",
+          "text": "La variación del índice de refracción con la longitud de onda"
+        },
+        {
+          "id": "d",
+          "text": "El cambio del diámetro del núcleo a lo largo del enlace"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "La atenuación es pérdida de potencia. El ensanchamiento de los pulsos es otro fenómeno distinto: la dispersión cromática y modal."
+    },
+    {
+      "prompt": "¿Cuál es la expresión habitual del coeficiente de atenuación, en dB/km, de una fibra de longitud L?",
+      "options": [
+        {
+          "id": "a",
+          "text": "α = L·log₁₀(P_salida / P_entrada)"
+        },
+        {
+          "id": "b",
+          "text": "α = (10/L)·log₁₀(P_entrada / P_salida)"
+        },
+        {
+          "id": "c",
+          "text": "α = (10/L)·log₁₀(P_salida / P_entrada)"
+        },
+        {
+          "id": "d",
+          "text": "α = (20/L)·log₁₀(P_entrada / P_salida)"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Se usa 10·log₁₀ porque se comparan potencias (el factor 20 se reserva para amplitudes de tensión o campo). Con P_entrada / P_salida > 1 el resultado es positivo; la opción con el cociente invertido daría un valor negativo."
+    },
+    {
+      "prompt": "¿Por qué las pérdidas de una fibra se expresan en dB por kilómetro?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Porque la potencia decae de forma exponencial con la distancia, de modo que en dB las pérdidas se suman de forma lineal con la longitud"
+        },
+        {
+          "id": "b",
+          "text": "Porque la potencia decae linealmente con la distancia"
+        },
+        {
+          "id": "c",
+          "text": "Porque el decibelio es una unidad de energía y no de potencia"
+        },
+        {
+          "id": "d",
+          "text": "Porque solo así se pueden comparar fibras de distinto material"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Como P(L) = P(0)·10^(−αL/10), el logaritmo convierte el decaimiento exponencial en una pérdida proporcional a L: 0,2 dB/km significa 2 dB en 10 km, 4 dB en 20 km, etc."
+    },
+    {
+      "type": "calc",
+      "prompt": "Se inyectan 2,0 mW en una fibra y a la salida de 10 km se miden 0,8 mW. ¿Cuál es la atenuación de la fibra?",
+      "unit": "dB/km",
+      "answer": 0.3979400087,
+      "decimals": 2,
+      "hint": "α = (10/L)·log₁₀(P_entrada / P_salida)",
+      "solution": [
+        "Se aplica α = (10/L)·log₁₀(P_entrada / P_salida).",
+        "α = (10 / 10 km)·log₁₀(2,0 / 0,8) = 1·log₁₀(2,5).",
+        "α ≈ 0,398 dB/km (≈ 0,40 dB/km)."
+      ]
+    },
+    {
+      "type": "calc",
+      "prompt": "Una fibra tiene una atenuación de 0,35 dB/km a 1310 nm. ¿Qué porcentaje de la potencia de entrada llega al final de un tramo de 20 km?",
+      "unit": "%",
+      "answer": 19.95262315,
+      "decimals": 1,
+      "hint": "Pérdida total en dB = α·L; luego P_salida / P_entrada = 10^(−pérdida/10).",
+      "solution": [
+        "Pérdida total = 0,35 dB/km × 20 km = 7,0 dB.",
+        "P_salida / P_entrada = 10^(−7,0/10) = 10^(−0,7) ≈ 0,1995.",
+        "Llega ≈ 20,0 % de la potencia (aproximadamente una quinta parte)."
+      ]
+    },
+    {
+      "type": "calc",
+      "prompt": "Convierte una atenuación de 0,2 dB/km a nepers por kilómetro, usando la relación α_dB = 4,343·α (donde α está en km⁻¹).",
+      "unit": "Np/km",
+      "answer": 0.04605111674,
+      "decimals": 4,
+      "hint": "Despeja α = α_dB / 4,343.",
+      "solution": [
+        "De α_dB = 4,343·α se despeja α = α_dB / 4,343.",
+        "α = 0,2 / 4,343 ≈ 0,0461 km⁻¹ (Np/km).",
+        "El factor 4,343 es 10·log₁₀(e): relaciona la escala logarítmica en base 10 (dB) con la natural (nepers)."
+      ]
+    },
+    {
+      "type": "calc",
+      "prompt": "Un componente deja pasar solo el 50 % de la potencia óptica que recibe. ¿Cuántos dB de pérdida representa?",
+      "unit": "dB",
+      "answer": 3.010299957,
+      "decimals": 2,
+      "hint": "Pérdida (dB) = 10·log₁₀(P_entrada / P_salida).",
+      "solution": [
+        "Pérdida = 10·log₁₀(P_entrada / P_salida) = 10·log₁₀(1 / 0,5).",
+        "= 10·log₁₀(2) ≈ 3,01 dB.",
+        "Regla práctica: perder la mitad de la potencia equivale a unos 3 dB."
+      ]
+    },
+    {
+      "type": "calc",
+      "prompt": "La potencia óptica en un punto del enlace es 250 µW. Exprésala en dBm.",
+      "unit": "dBm",
+      "answer": -6.020599913,
+      "decimals": 2,
+      "toleranceAbs": 0.1,
+      "hint": "P(dBm) = 10·log₁₀(P / 1 mW). Recuerda convertir µW a mW.",
+      "solution": [
+        "P(dBm) = 10·log₁₀(P / 1 mW).",
+        "250 µW = 0,25 mW.",
+        "P = 10·log₁₀(0,25) ≈ -6,02 dBm."
+      ]
+    }
+  ]
+}

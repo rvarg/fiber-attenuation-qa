@@ -1,0 +1,145 @@
+{
+  "title": "Curvaturas e imperfecciones de la guía",
+  "description": "Macrocurvatura, microcurvatura y otras pérdidas por radiación.",
+  "shuffleQuestions": true,
+  "questions": [
+    {
+      "prompt": "¿Cuál es la diferencia entre macrocurvatura y microcurvatura?",
+      "options": [
+        {
+          "id": "a",
+          "text": "La macrocurvatura es una curva visible de radio grande (p. ej., un cable doblado) y la microcurvatura son pequeñas deformaciones aleatorias del eje de la fibra, causadas por presiones laterales"
+        },
+        {
+          "id": "b",
+          "text": "La macrocurvatura solo afecta a fibras multimodo y la microcurvatura solo a monomodo"
+        },
+        {
+          "id": "c",
+          "text": "Son sinónimos"
+        },
+        {
+          "id": "d",
+          "text": "La macrocurvatura es una pérdida por absorción y la microcurvatura por esparcimiento de Rayleigh"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "En ambas, parte de la luz deja de cumplir la condición de reflexión total y se radia fuera del núcleo; difieren en la escala de la deformación y en su causa."
+    },
+    {
+      "prompt": "Al reducir el radio de curvatura de una fibra (macrocurvatura), la pérdida por radiación:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Aumenta muy rápido (de forma aproximadamente exponencial) al bajar de cierto radio crítico"
+        },
+        {
+          "id": "b",
+          "text": "Disminuye linealmente"
+        },
+        {
+          "id": "c",
+          "text": "No cambia mientras la fibra no se rompa"
+        },
+        {
+          "id": "d",
+          "text": "Disminuye porque la luz queda más confinada"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Con radios grandes la pérdida es despreciable, pero por debajo de un radio crítico crece de forma abrupta. Por eso los fabricantes especifican un radio mínimo de curvatura."
+    },
+    {
+      "prompt": "Para una misma curvatura, ¿en qué longitudes de onda suele ser mayor la pérdida por macrocurvatura en una fibra monomodo?",
+      "options": [
+        {
+          "id": "a",
+          "text": "En las más largas, porque el campo modal se extiende más hacia el revestimiento"
+        },
+        {
+          "id": "b",
+          "text": "En las más cortas"
+        },
+        {
+          "id": "c",
+          "text": "Es igual para todas las longitudes de onda"
+        },
+        {
+          "id": "d",
+          "text": "Solo importa en 850 nm"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Cuanto mayor es λ, menos confinado está el modo y más fácil es que se radie en la curva; por eso las bandas largas (1625 nm) son más sensibles que 1310 nm."
+    },
+    {
+      "prompt": "¿Qué puede causar microcurvaturas durante la fabricación o la instalación de un cable?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Presiones laterales irregulares sobre la fibra (cableado o recubrimiento inadecuados, aplastamiento)"
+        },
+        {
+          "id": "b",
+          "text": "La absorción de agua en el núcleo"
+        },
+        {
+          "id": "c",
+          "text": "Un exceso de dopante de germanio"
+        },
+        {
+          "id": "d",
+          "text": "La reflexión en los conectores"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Las fuerzas laterales deforman ligeramente el eje de la fibra de forma aleatoria. Un buen diseño del cable (recubrimientos y elementos de protección) reduce este efecto."
+    },
+    {
+      "prompt": "¿Qué rasgo de diseño hace que una fibra sea «insensible a curvaturas» (por ejemplo, las de tipo ITU-T G.657)?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Un perfil de índice que confina mejor la luz, por ejemplo con una trinchera (foso) de bajo índice en el revestimiento"
+        },
+        {
+          "id": "b",
+          "text": "Un núcleo de diámetro mucho mayor"
+        },
+        {
+          "id": "c",
+          "text": "Un revestimiento con mayor índice de refracción que el núcleo"
+        },
+        {
+          "id": "d",
+          "text": "Eliminar el recubrimiento protector"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Con mejor confinamiento del modo, la luz resiste curvas más cerradas (útil en instalaciones dentro de edificios y FTTH). Un revestimiento de índice mayor que el del núcleo impediría el guiado."
+    },
+    {
+      "prompt": "Las imperfecciones de la guía (variaciones de diámetro del núcleo, burbujas, tensiones residuales) producen pérdidas porque:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Acoplan parte de la potencia de los modos guiados a modos radiados o de fuga"
+        },
+        {
+          "id": "b",
+          "text": "Aumentan la absorción de OH⁻"
+        },
+        {
+          "id": "c",
+          "text": "Reducen el índice del revestimiento"
+        },
+        {
+          "id": "d",
+          "text": "Elevan la temperatura de fusión del vidrio"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Cualquier variación a lo largo de la fibra rompe las condiciones ideales de guiado y transfiere energía a modos que no se propagan por el núcleo."
+    }
+  ]
+}

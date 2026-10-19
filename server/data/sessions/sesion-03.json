@@ -1,0 +1,125 @@
+{
+  "title": "Esparcimiento (scattering) de la luz",
+  "description": "Rayleigh y Mie; dependencia con la longitud de onda.",
+  "shuffleQuestions": true,
+  "questions": [
+    {
+      "prompt": "¿Cuál es el origen del esparcimiento de Rayleigh en una fibra de sílice?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Fluctuaciones microscópicas de densidad y de composición del vidrio, «congeladas» al solidificar durante la fabricación"
+        },
+        {
+          "id": "b",
+          "text": "La absorción de la luz por iones OH⁻"
+        },
+        {
+          "id": "c",
+          "text": "Las curvas pronunciadas del cable"
+        },
+        {
+          "id": "d",
+          "text": "La reflexión de Fresnel en los conectores"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Esas variaciones son mucho menores que la longitud de onda y desvían una pequeña parte de la luz en todas direcciones, de modo que deja de ser guiada."
+    },
+    {
+      "prompt": "¿Cómo depende la pérdida por esparcimiento de Rayleigh de la longitud de onda λ?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Es proporcional a 1/λ⁴: disminuye rápidamente al aumentar λ"
+        },
+        {
+          "id": "b",
+          "text": "Es proporcional a λ⁴"
+        },
+        {
+          "id": "c",
+          "text": "Es independiente de λ"
+        },
+        {
+          "id": "d",
+          "text": "Es proporcional a 1/λ²"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Por la dependencia en 1/λ⁴, pasar de 850 nm a 1550 nm reduce el esparcimiento de Rayleigh en un factor cercano a 11."
+    },
+    {
+      "prompt": "¿Qué mecanismo fija el piso de atenuación de la fibra de sílice cerca de 1550 nm?",
+      "options": [
+        {
+          "id": "a",
+          "text": "El esparcimiento de Rayleigh, junto con una pequeña contribución de la cola de la absorción infrarroja"
+        },
+        {
+          "id": "b",
+          "text": "La absorción por iones OH⁻"
+        },
+        {
+          "id": "c",
+          "text": "Las microcurvaturas"
+        },
+        {
+          "id": "d",
+          "text": "La absorción ultravioleta"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "A 1550 nm el Rayleigh aporta la mayor parte de los ≈0,2 dB/km; el resto es la cola infrarroja y pequeñas contribuciones. Por eso las fibras de sílice no bajan mucho de ese valor."
+    },
+    {
+      "prompt": "¿En qué se diferencia el esparcimiento de Mie del de Rayleigh?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Se origina en inhomogeneidades de tamaño comparable a la longitud de onda (p. ej., imperfecciones del límite núcleo–revestimiento) y depende menos de λ"
+        },
+        {
+          "id": "b",
+          "text": "Se debe a impurezas de iones metálicos"
+        },
+        {
+          "id": "c",
+          "text": "Solo ocurre en fibras monomodo"
+        },
+        {
+          "id": "d",
+          "text": "Siempre es mayor que el de Rayleigh"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Las inhomogeneidades grandes (burbujas, variaciones de diámetro, imperfecciones de la interfaz) esparcen la luz sobre todo hacia adelante; su efecto se reduce con mejores procesos de fabricación."
+    },
+    {
+      "type": "calc",
+      "prompt": "La pérdida por esparcimiento de Rayleigh de una fibra es 0,12 dB/km a 1550 nm. Suponiendo que varía como 1/λ⁴, ¿cuánto vale a 1310 nm?",
+      "unit": "dB/km",
+      "answer": 0.2351921684,
+      "decimals": 3,
+      "hint": "α_R(1310) = α_R(1550)·(1550/1310)⁴",
+      "solution": [
+        "Como α_R ∝ 1/λ⁴, α_R(1310) = α_R(1550)·(1550 / 1310)⁴.",
+        "(1550 / 1310) ≈ 1,1832; elevado a la cuarta potencia ≈ 1,960.",
+        "α_R(1310) ≈ 0,12 × 1,960 ≈ 0,235 dB/km."
+      ]
+    },
+    {
+      "type": "calc",
+      "prompt": "¿Cuántas veces mayor es el esparcimiento de Rayleigh a 850 nm que a 1550 nm?",
+      "unit": "veces",
+      "answer": 11.05735085,
+      "decimals": 1,
+      "hint": "La razón es (λ_larga / λ_corta)⁴.",
+      "solution": [
+        "Con α_R ∝ 1/λ⁴, α_R(850) / α_R(1550) = (1550 / 850)⁴.",
+        "1550 / 850 ≈ 1,8235.",
+        "(1,8235)⁴ ≈ 11,06: unas 11 veces mayor."
+      ]
+    }
+  ]
+}

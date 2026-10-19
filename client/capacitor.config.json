@@ -1,0 +1,12 @@
+{
+  "appId": "ec.espol.fiberattenuationqa",
+  "appName": "Atenuación en Fibra",
+  "webDir": "../public",
+  "server": {
+    "androidScheme": "https",
+    "cleartext": true
+  },
+  "android": {
+    "allowMixedContent": true
+  }
+}
