@@ -13,7 +13,7 @@
 //
 //   const FALLBACK_API_BASE_URL = "http://192.168.1.50:3000/api";
 
-const FALLBACK_API_BASE_URL = "http://192.168.1.50:3000/api";
+const FALLBACK_API_BASE_URL = "https://fiber-attenuation-qa.vercel.app/api";
 
 const API_BASE_URL = (function () {
   const isNativeApp = !!(
