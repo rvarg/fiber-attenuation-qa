@@ -35,7 +35,7 @@ fiber-attenuation-qa/
 │       ├── app.json            Textos del encabezado de la app
 │       └── sessions/           sesion-01.json ... sesion-10.json (+ plantilla)
 ├── api/index.js    Punto de entrada para Vercel: exporta la misma app.js
-├── vercel.json     Reenvía /api/* a la función; public/ se sirve en la raíz
+├── vercel.json     Sirve public/ en la raíz; lo demás pasa a la función Express
 ├── package.json    Dependencias y scripts (npm run validate)
 └── .devcontainer/  Entorno Theia/Docker con JDK + Android SDK preinstalados
 ```
@@ -164,30 +164,51 @@ el APK — solo el backend cambia.
 
 ### Si ves «404: NOT_FOUND» al abrir la URL
 
-Revisa, en este orden:
+Ese mensaje (con un «Request ID») lo genera la propia Vercel cuando no
+encuentra nada que servir en esa dirección. Haz primero esta prueba, que
+separa las causas en 30 segundos:
+
+> Abre `https://TU-PROYECTO.vercel.app/api`
+
+- **Responde un JSON** (`"status":"ok"`, con `sessionCount`): la función
+  está desplegada y la causa estaba en los archivos estáticos. Con el
+  `vercel.json` actual la propia función sirve también la página como
+  respaldo, así que `/` debería cargar; vuelve a desplegar con la última
+  versión del proyecto.
+- **También sale 404 de Vercel**: Vercel no está viendo los archivos de este
+  proyecto. La causa casi segura es la **carpeta raíz** (punto 1).
+
+Puntos a revisar, en este orden:
 
 1. **Carpeta raíz del repositorio.** `vercel.json`, `api/`, `public/` y
-   `server/` deben estar en la **raíz del repositorio**. Si al subir el zip
-   quedó una carpeta extra (`fiber-attenuation-qa/` dentro del repo), o importas
-   solo una subcarpeta, Vercel no encuentra nada y responde 404. Solución: mueve
-   el contenido a la raíz, o en Vercel entra a **Settings → General → Root
-   Directory** y escribe el nombre de esa carpeta.
-2. **Configuración antigua.** Las primeras versiones de este proyecto
-   usaban `builds` y `routes` en `vercel.json`; con esa forma, la página
-   principal (`/`) devolvía 404. Asegúrate de que tu `vercel.json` sea
-   exactamente el de este proyecto (sin `builds` ni `routes`) y vuelve a
-   desplegar.
-3. **Ajustes del proyecto en Vercel.** En **Settings → Build &
-   Development Settings**, el *Framework Preset* debe ser **Other** (este
-   `vercel.json` ya lo fuerza) y no debe haber un *Output Directory*
-   distinto de `public`.
-4. **Comprobar qué se desplegó.** En el despliegue, pestaña **Source** (o
-   *Build Logs* → *Deployment Summary*): debe verse `index.html` dentro de
-   *Static Assets* y una función `api/index.js` en *Functions*.
-5. **Probar la API aparte.** `https://TU-PROYECTO.vercel.app/api/health`
-   debe responder JSON. Si la API responde pero la página no, el problema
-   es de archivos estáticos (puntos 1 a 4); si la página carga pero la API
-   no, revisa *Runtime Logs* del despliegue.
+   `server/` deben estar en la **raíz del repositorio**. Abre tu repo en
+   GitHub: si en la lista de archivos ves una sola carpeta
+   (`fiber-attenuation-qa/`) en lugar de esos archivos, el proyecto quedó anidado y
+   Vercel no encuentra nada. Soluciones: mueve el contenido de esa carpeta
+   a la raíz del repo, **o** en Vercel entra a **Settings → General → Root
+   Directory**, escribe el nombre de la carpeta y vuelve a desplegar.
+2. **Descartar Git: desplegar desde tu computadora.** Desde la carpeta que
+   contiene `vercel.json`:
+
+   ```bash
+   npx vercel --prod
+   ```
+
+   El comando despliega exactamente esa carpeta. Si así funciona, el
+   problema está en cómo se subió el repo (punto 1) o en los ajustes del
+   proyecto en Vercel (punto 3).
+3. **Ajustes del proyecto en Vercel** (*Settings → General* y *Build &
+   Development Settings*): *Framework Preset* = **Other**, sin *Output
+   Directory* ni *Build Command* personalizados distintos de los del
+   `vercel.json`, y *Root Directory* vacío (o la carpeta correcta).
+4. **Que el despliegue sea el nuevo.** «Redeploy» sobre un despliegue
+   antiguo reutiliza el código antiguo. Haz un commit nuevo con el
+   `vercel.json` actual (o usa el punto 2). En el despliegue, pestaña
+   *Build Logs*, debe verse *Installing dependencies* y, al final, la lista
+   de archivos estáticos (`index.html`, `css/`, `js/`, `img/`).
+5. **`vercel.json` antiguo.** Las primeras versiones usaban `builds` y
+   `routes`, y con esa forma `/` devolvía 404. El `vercel.json` correcto no
+   contiene ninguna de esas dos claves.
 
 ### Límites a tener presentes en el plan Hobby
 

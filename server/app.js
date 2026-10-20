@@ -107,6 +107,18 @@ function findSession(id) {
 
 // ---------- Rutas ----------
 
+// Página de diagnóstico: abre https://TU-DOMINIO/api para comprobar que la
+// función está desplegada y ver cuántas sesiones cargó.
+app.get('/api', (req, res) => {
+  res.json({
+    app: content.config.title,
+    status: 'ok',
+    sessionCount: content.sessions.length,
+    warnings: content.warnings.length,
+    endpoints: ['/api/health', '/api/config', '/api/sessions', '/api/sessions/:sessionId']
+  });
+});
+
 app.get('/api/health', (req, res) => {
   res.json({
     status: 'ok',

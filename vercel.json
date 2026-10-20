@@ -2,9 +2,9 @@
   "framework": null,
   "outputDirectory": "public",
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "/api" }
+    { "source": "/(.*)", "destination": "/api" }
   ],
   "functions": {
-    "api/index.js": { "includeFiles": "server/data/**" }
+    "api/index.js": { "includeFiles": "{server/data,public}/**" }
   }
 }
