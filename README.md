@@ -35,7 +35,7 @@ fiber-attenuation-qa/
 │       ├── app.json            Textos del encabezado de la app
 │       └── sessions/           sesion-01.json ... sesion-10.json (+ plantilla)
 ├── api/index.js    Punto de entrada para Vercel: exporta la misma app.js
-├── vercel.json     Enruta /api/* a la función, el resto a public/
+├── vercel.json     Reenvía /api/* a la función; public/ se sirve en la raíz
 ├── package.json    Dependencias y scripts (npm run validate)
 └── .devcontainer/  Entorno Theia/Docker con JDK + Android SDK preinstalados
 ```
@@ -102,8 +102,9 @@ y súbelo a GitHub (crea el repo vacío en GitHub primero, luego
 1. Entra a [vercel.com](https://vercel.com) e inicia sesión (puedes usar
    tu cuenta de GitHub directamente).
 2. **Add New → Project**, selecciona el repositorio.
-3. Vercel detecta `vercel.json` automáticamente — no hace falta tocar la
-   configuración de "Build & Output Settings" que propone por defecto.
+3. `vercel.json` ya fija el *Framework Preset* en «Other» y la carpeta
+   de salida en `public/`: no hace falta cambiar nada en «Build & Output
+   Settings». Importa el repositorio desde su **raíz** (ver «404» más abajo).
 4. **Deploy**. En un par de minutos tendrás la URL pública.
 
 Alternativa por línea de comandos, si lo prefieres:
@@ -160,6 +161,33 @@ git push
 Vercel vuelve a desplegar automáticamente al detectar el push (o corre
 `vercel --prod` de nuevo si desplegaste por CLI). No necesitas recompilar
 el APK — solo el backend cambia.
+
+### Si ves «404: NOT_FOUND» al abrir la URL
+
+Revisa, en este orden:
+
+1. **Carpeta raíz del repositorio.** `vercel.json`, `api/`, `public/` y
+   `server/` deben estar en la **raíz del repositorio**. Si al subir el zip
+   quedó una carpeta extra (`fiber-attenuation-qa/` dentro del repo), o importas
+   solo una subcarpeta, Vercel no encuentra nada y responde 404. Solución: mueve
+   el contenido a la raíz, o en Vercel entra a **Settings → General → Root
+   Directory** y escribe el nombre de esa carpeta.
+2. **Configuración antigua.** Las primeras versiones de este proyecto
+   usaban `builds` y `routes` en `vercel.json`; con esa forma, la página
+   principal (`/`) devolvía 404. Asegúrate de que tu `vercel.json` sea
+   exactamente el de este proyecto (sin `builds` ni `routes`) y vuelve a
+   desplegar.
+3. **Ajustes del proyecto en Vercel.** En **Settings → Build &
+   Development Settings**, el *Framework Preset* debe ser **Other** (este
+   `vercel.json` ya lo fuerza) y no debe haber un *Output Directory*
+   distinto de `public`.
+4. **Comprobar qué se desplegó.** En el despliegue, pestaña **Source** (o
+   *Build Logs* → *Deployment Summary*): debe verse `index.html` dentro de
+   *Static Assets* y una función `api/index.js` en *Functions*.
+5. **Probar la API aparte.** `https://TU-PROYECTO.vercel.app/api/health`
+   debe responder JSON. Si la API responde pero la página no, el problema
+   es de archivos estáticos (puntos 1 a 4); si la página carga pero la API
+   no, revisa *Runtime Logs* del despliegue.
 
 ### Límites a tener presentes en el plan Hobby
 
