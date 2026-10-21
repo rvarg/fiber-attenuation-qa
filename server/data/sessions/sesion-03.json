@@ -1,125 +1,122 @@
 {
-  "title": "Esparcimiento (scattering) de la luz",
-  "description": "Rayleigh y Mie; dependencia con la longitud de onda.",
+  "title": "Curvaturas e imperfecciones de la guía",
+  "description": "Macrocurvatura, microcurvatura y otras pérdidas por radiación.",
   "shuffleQuestions": true,
   "questions": [
     {
-      "prompt": "¿Cuál es el origen del esparcimiento de Rayleigh en una fibra de sílice?",
+      "prompt": "¿Cuál es la diferencia entre macrocurvatura y microcurvatura?",
       "options": [
         {
           "id": "a",
-          "text": "Fluctuaciones microscópicas de densidad y de composición del vidrio, «congeladas» al solidificar durante la fabricación"
+          "text": "La macrocurvatura es una curva visible de radio grande (p. ej., un cable doblado) y la microcurvatura son pequeñas deformaciones aleatorias del eje de la fibra, causadas por presiones laterales"
         },
         {
           "id": "b",
-          "text": "La absorción de la luz por iones OH⁻"
+          "text": "La macrocurvatura solo afecta a fibras multimodo y la microcurvatura solo a monomodo"
         },
         {
           "id": "c",
-          "text": "Las curvas pronunciadas del cable"
+          "text": "Son sinónimos"
         },
         {
           "id": "d",
-          "text": "La reflexión de Fresnel en los conectores"
+          "text": "La macrocurvatura es una pérdida por absorción y la microcurvatura por esparcimiento de Rayleigh"
         }
       ],
       "correctOptionId": "a",
-      "explanation": "Esas variaciones son mucho menores que la longitud de onda y desvían una pequeña parte de la luz en todas direcciones, de modo que deja de ser guiada."
+      "explanation": "En ambas, parte de la luz deja de cumplir la condición de reflexión total y se radia fuera del núcleo; difieren en la escala de la deformación y en su causa."
     },
     {
-      "prompt": "¿Cómo depende la pérdida por esparcimiento de Rayleigh de la longitud de onda λ?",
+      "prompt": "Al reducir el radio de curvatura de una fibra (macrocurvatura), la pérdida por radiación:",
       "options": [
         {
           "id": "a",
-          "text": "Es proporcional a 1/λ⁴: disminuye rápidamente al aumentar λ"
+          "text": "Aumenta muy rápido (de forma aproximadamente exponencial) al bajar de cierto radio crítico"
         },
         {
           "id": "b",
-          "text": "Es proporcional a λ⁴"
+          "text": "Disminuye linealmente"
         },
         {
           "id": "c",
-          "text": "Es independiente de λ"
+          "text": "No cambia mientras la fibra no se rompa"
         },
         {
           "id": "d",
-          "text": "Es proporcional a 1/λ²"
+          "text": "Disminuye porque la luz queda más confinada"
         }
       ],
       "correctOptionId": "a",
-      "explanation": "Por la dependencia en 1/λ⁴, pasar de 850 nm a 1550 nm reduce el esparcimiento de Rayleigh en un factor cercano a 11."
+      "explanation": "Con radios grandes la pérdida es despreciable, pero por debajo de un radio crítico crece de forma abrupta. Por eso los fabricantes especifican un radio mínimo de curvatura."
     },
     {
-      "prompt": "¿Qué mecanismo fija el piso de atenuación de la fibra de sílice cerca de 1550 nm?",
+      "prompt": "Para una misma curvatura, ¿en qué longitudes de onda suele ser mayor la pérdida por macrocurvatura en una fibra monomodo?",
       "options": [
         {
           "id": "a",
-          "text": "El esparcimiento de Rayleigh, junto con una pequeña contribución de la cola de la absorción infrarroja"
+          "text": "En las más largas, porque el campo modal se extiende más hacia el revestimiento"
         },
         {
           "id": "b",
-          "text": "La absorción por iones OH⁻"
+          "text": "En las más cortas"
         },
         {
           "id": "c",
-          "text": "Las microcurvaturas"
+          "text": "Es igual para todas las longitudes de onda"
         },
         {
           "id": "d",
-          "text": "La absorción ultravioleta"
+          "text": "Solo importa en 850 nm"
         }
       ],
       "correctOptionId": "a",
-      "explanation": "A 1550 nm el Rayleigh aporta la mayor parte de los ≈0,2 dB/km; el resto es la cola infrarroja y pequeñas contribuciones. Por eso las fibras de sílice no bajan mucho de ese valor."
+      "explanation": "Cuanto mayor es λ, menos confinado está el modo y más fácil es que se radie en la curva; por eso las bandas largas (1625 nm) son más sensibles que 1310 nm."
     },
     {
-      "prompt": "¿En qué se diferencia el esparcimiento de Mie del de Rayleigh?",
+      "prompt": "¿Qué puede causar microcurvaturas durante la fabricación o la instalación de un cable?",
       "options": [
         {
           "id": "a",
-          "text": "Se origina en inhomogeneidades de tamaño comparable a la longitud de onda (p. ej., imperfecciones del límite núcleo–revestimiento) y depende menos de λ"
+          "text": "Presiones laterales irregulares sobre la fibra (cableado o recubrimiento inadecuados, aplastamiento)"
         },
         {
           "id": "b",
-          "text": "Se debe a impurezas de iones metálicos"
+          "text": "La absorción de agua en el núcleo"
         },
         {
           "id": "c",
-          "text": "Solo ocurre en fibras monomodo"
+          "text": "Un exceso de dopante de germanio"
         },
         {
           "id": "d",
-          "text": "Siempre es mayor que el de Rayleigh"
+          "text": "La reflexión en los conectores"
         }
       ],
       "correctOptionId": "a",
-      "explanation": "Las inhomogeneidades grandes (burbujas, variaciones de diámetro, imperfecciones de la interfaz) esparcen la luz sobre todo hacia adelante; su efecto se reduce con mejores procesos de fabricación."
+      "explanation": "Las fuerzas laterales deforman ligeramente el eje de la fibra de forma aleatoria. Un buen diseño del cable (recubrimientos y elementos de protección) reduce este efecto."
     },
     {
-      "type": "calc",
-      "prompt": "La pérdida por esparcimiento de Rayleigh de una fibra es 0,12 dB/km a 1550 nm. Suponiendo que varía como 1/λ⁴, ¿cuánto vale a 1310 nm?",
-      "unit": "dB/km",
-      "answer": 0.2351921684,
-      "decimals": 3,
-      "hint": "α_R(1310) = α_R(1550)·(1550/1310)⁴",
-      "solution": [
-        "Como α_R ∝ 1/λ⁴, α_R(1310) = α_R(1550)·(1550 / 1310)⁴.",
-        "(1550 / 1310) ≈ 1,1832; elevado a la cuarta potencia ≈ 1,960.",
-        "α_R(1310) ≈ 0,12 × 1,960 ≈ 0,235 dB/km."
-      ]
-    },
-    {
-      "type": "calc",
-      "prompt": "¿Cuántas veces mayor es el esparcimiento de Rayleigh a 850 nm que a 1550 nm?",
-      "unit": "veces",
-      "answer": 11.05735085,
-      "decimals": 1,
-      "hint": "La razón es (λ_larga / λ_corta)⁴.",
-      "solution": [
-        "Con α_R ∝ 1/λ⁴, α_R(850) / α_R(1550) = (1550 / 850)⁴.",
-        "1550 / 850 ≈ 1,8235.",
-        "(1,8235)⁴ ≈ 11,06: unas 11 veces mayor."
-      ]
+      "prompt": "Las imperfecciones de la guía (variaciones de diámetro del núcleo, burbujas, tensiones residuales) producen pérdidas porque:",
+      "options": [
+        {
+          "id": "a",
+          "text": "Acoplan parte de la potencia de los modos guiados a modos radiados o de fuga"
+        },
+        {
+          "id": "b",
+          "text": "Aumentan la absorción de OH⁻"
+        },
+        {
+          "id": "c",
+          "text": "Reducen el índice del revestimiento"
+        },
+        {
+          "id": "d",
+          "text": "Elevan la temperatura de fusión del vidrio"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Cualquier variación a lo largo de la fibra rompe las condiciones ideales de guiado y transfiere energía a modos que no se propagan por el núcleo."
     }
   ]
 }

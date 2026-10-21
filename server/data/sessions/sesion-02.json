@@ -4,7 +4,7 @@
   "shuffleQuestions": true,
   "questions": [
     {
-      "prompt": "¿Cuál de las siguientes es una causa de absorción intrínseca en una fibra de sílice?",
+      "prompt": "¿Cuál de las siguientes es una causa de absorción intrínseca UV e Infraroja en una fibra de sílice?",
       "options": [
         {
           "id": "a",
@@ -27,7 +27,7 @@
       "explanation": "La absorción intrínseca es propia del material, incluso si fuera perfectamente puro: bordes de absorción ultravioleta y bandas de vibración infrarroja del enlace Si–O. OH⁻ y metales son impurezas, es decir, absorción extrínseca."
     },
     {
-      "prompt": "La absorción extrínseca en una fibra se debe principalmente a:",
+      "prompt": "La absorción extrínseca o scattering Rayleigh en una fibra se debe principalmente a:",
       "options": [
         {
           "id": "a",
@@ -54,7 +54,7 @@
       "options": [
         {
           "id": "a",
-          "text": "Alrededor de 1380 nm"
+          "text": "Alrededor de 1380 y 1400 nm"
         },
         {
           "id": "b",
@@ -77,7 +77,7 @@
       "options": [
         {
           "id": "a",
-          "text": "Reducir tanto el contenido de OH⁻ que la región cercana a 1380 nm se puede usar para transmitir"
+          "text": "Reducir tanto el contenido de OH⁻ que la región cercana a 1380 nm se puede usar para transmitir en la banda E"
         },
         {
           "id": "b",
@@ -94,29 +94,6 @@
       ],
       "correctOptionId": "a",
       "explanation": "Con procesos de fabricación que evitan el agua, el pico se atenúa lo suficiente para aprovechar las longitudes de onda entre 1310 y 1550 nm (por ejemplo, en sistemas WDM de gran número de canales)."
-    },
-    {
-      "prompt": "¿Por qué la absorción infrarroja intrínseca limita el uso de la fibra de sílice por encima de unos 1600–1650 nm?",
-      "options": [
-        {
-          "id": "a",
-          "text": "Porque la cola de las bandas de vibración del enlace Si–O hace crecer la pérdida a longitudes de onda largas"
-        },
-        {
-          "id": "b",
-          "text": "Porque los iones OH⁻ absorben con más fuerza en esa región"
-        },
-        {
-          "id": "c",
-          "text": "Porque el esparcimiento de Rayleigh crece con la longitud de onda"
-        },
-        {
-          "id": "d",
-          "text": "Porque el núcleo deja de guiar la luz y se vuelve multimodo"
-        }
-      ],
-      "correctOptionId": "a",
-      "explanation": "Las vibraciones del Si–O absorben en el infrarrojo medio; su cola alcanza la región de 1,6 µm en adelante. El esparcimiento de Rayleigh, en cambio, disminuye al aumentar la longitud de onda."
     },
     {
       "prompt": "¿Qué se hace en la fabricación para reducir la absorción extrínseca?",

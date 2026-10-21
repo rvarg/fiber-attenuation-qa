@@ -1,145 +1,160 @@
 {
-  "title": "Curvaturas e imperfecciones de la guía",
-  "description": "Macrocurvatura, microcurvatura y otras pérdidas por radiación.",
+  "title": "Atenuación espectral y ventanas de transmisión",
+  "description": "Cómo leer la curva de atenuación frente a la longitud de onda.",
   "shuffleQuestions": true,
   "questions": [
     {
-      "prompt": "¿Cuál es la diferencia entre macrocurvatura y microcurvatura?",
+      "prompt": "En el esquema, la curva que desciende en las longitudes de onda cortas (tramo marcado con C) se debe principalmente a:",
+      "image": {
+        "url": "img/atenuacion-espectral.svg",
+        "alt": "Esquema de la atenuación de una fibra de sílice frente a la longitud de onda: una curva que baja desde 0,8 µm, con picos de absorción cerca de 0,95, 1,24 y 1,38 µm, un mínimo cerca de 1,55 µm y un aumento después de 1,6 µm. Tres tramos están marcados con las letras A, B y C",
+        "caption": "Esquema cualitativo de la atenuación espectral (sin escala numérica exacta). Ilustración propia."
+      },
       "options": [
         {
           "id": "a",
-          "text": "La macrocurvatura es una curva visible de radio grande (p. ej., un cable doblado) y la microcurvatura son pequeñas deformaciones aleatorias del eje de la fibra, causadas por presiones laterales"
+          "text": "Esparcimiento de Rayleigh (proporcional a 1/λ⁴)"
         },
         {
           "id": "b",
-          "text": "La macrocurvatura solo afecta a fibras multimodo y la microcurvatura solo a monomodo"
+          "text": "Absorción infrarroja del enlace Si–O"
         },
         {
           "id": "c",
-          "text": "Son sinónimos"
+          "text": "Absorción por iones OH⁻"
         },
         {
           "id": "d",
-          "text": "La macrocurvatura es una pérdida por absorción y la microcurvatura por esparcimiento de Rayleigh"
+          "text": "Macrocurvaturas del cable"
         }
       ],
       "correctOptionId": "a",
-      "explanation": "En ambas, parte de la luz deja de cumplir la condición de reflexión total y se radia fuera del núcleo; difieren en la escala de la deformación y en su causa."
+      "explanation": "La pérdida base de la curva baja con λ siguiendo aproximadamente 1/λ⁴: es el esparcimiento de Rayleigh. Los picos que se superponen son absorción por OH⁻."
     },
     {
-      "prompt": "Al reducir el radio de curvatura de una fibra (macrocurvatura), la pérdida por radiación:",
+      "prompt": "El pico marcado con A, cerca de 1,38 µm, corresponde a:",
+      "image": {
+        "url": "img/atenuacion-espectral.svg",
+        "alt": "Esquema de la atenuación de una fibra de sílice frente a la longitud de onda: una curva que baja desde 0,8 µm, con picos de absorción cerca de 0,95, 1,24 y 1,38 µm, un mínimo cerca de 1,55 µm y un aumento después de 1,6 µm. Tres tramos están marcados con las letras A, B y C",
+        "caption": "Esquema cualitativo de la atenuación espectral (sin escala numérica exacta). Ilustración propia."
+      },
       "options": [
         {
           "id": "a",
-          "text": "Aumenta muy rápido (de forma aproximadamente exponencial) al bajar de cierto radio crítico"
+          "text": "Absorción por iones OH⁻ (agua) residuales en el vidrio"
         },
         {
           "id": "b",
-          "text": "Disminuye linealmente"
+          "text": "Absorción ultravioleta del sílice"
         },
         {
           "id": "c",
-          "text": "No cambia mientras la fibra no se rompa"
+          "text": "Esparcimiento de Mie"
         },
         {
           "id": "d",
-          "text": "Disminuye porque la luz queda más confinada"
+          "text": "Absorción vibracional Si–O"
         }
       ],
       "correctOptionId": "a",
-      "explanation": "Con radios grandes la pérdida es despreciable, pero por debajo de un radio crítico crece de forma abrupta. Por eso los fabricantes especifican un radio mínimo de curvatura."
+      "explanation": "Es el pico de agua. Los picos más pequeños cerca de 0,95 y 1,24 µm también son armónicos y combinaciones de la vibración del OH⁻."
     },
     {
-      "prompt": "Para una misma curvatura, ¿en qué longitudes de onda suele ser mayor la pérdida por macrocurvatura en una fibra monomodo?",
+      "prompt": "El aumento de la pérdida más allá de unos 1,6 µm (tramo marcado con B) se debe a:",
+      "image": {
+        "url": "img/atenuacion-espectral.svg",
+        "alt": "Esquema de la atenuación de una fibra de sílice frente a la longitud de onda: una curva que baja desde 0,8 µm, con picos de absorción cerca de 0,95, 1,24 y 1,38 µm, un mínimo cerca de 1,55 µm y un aumento después de 1,6 µm. Tres tramos están marcados con las letras A, B y C",
+        "caption": "Esquema cualitativo de la atenuación espectral (sin escala numérica exacta). Ilustración propia."
+      },
       "options": [
         {
           "id": "a",
-          "text": "En las más largas, porque el campo modal se extiende más hacia el revestimiento"
+          "text": "La cola de la absorción infrarroja intrínseca del vidrio"
         },
         {
           "id": "b",
-          "text": "En las más cortas"
+          "text": "El esparcimiento de Rayleigh"
         },
         {
           "id": "c",
-          "text": "Es igual para todas las longitudes de onda"
+          "text": "Los iones OH⁻"
         },
         {
           "id": "d",
-          "text": "Solo importa en 850 nm"
+          "text": "La absorción ultravioleta"
         }
       ],
       "correctOptionId": "a",
-      "explanation": "Cuanto mayor es λ, menos confinado está el modo y más fácil es que se radie en la curva; por eso las bandas largas (1625 nm) son más sensibles que 1310 nm."
+      "explanation": "A longitudes de onda largas empieza a sentirse la absorción vibracional del Si–O. Esto, junto con el Rayleigh que ya es pequeño, fija el mínimo cerca de 1,55 µm."
     },
     {
-      "prompt": "¿Qué puede causar microcurvaturas durante la fabricación o la instalación de un cable?",
+      "prompt": "¿Cuáles son las tres ventanas clásicas de transmisión de las fibras de sílice?",
       "options": [
         {
           "id": "a",
-          "text": "Presiones laterales irregulares sobre la fibra (cableado o recubrimiento inadecuados, aplastamiento)"
+          "text": "Alrededor de 850 nm, 1310 nm y 1550 nm"
         },
         {
           "id": "b",
-          "text": "La absorción de agua en el núcleo"
+          "text": "Alrededor de 650 nm, 1000 nm y 1383 nm"
         },
         {
           "id": "c",
-          "text": "Un exceso de dopante de germanio"
+          "text": "Alrededor de 1383 nm, 1625 nm y 1800 nm"
         },
         {
           "id": "d",
-          "text": "La reflexión en los conectores"
+          "text": "Alrededor de 400 nm, 850 nm y 1310 nm"
         }
       ],
       "correctOptionId": "a",
-      "explanation": "Las fuerzas laterales deforman ligeramente el eje de la fibra de forma aleatoria. Un buen diseño del cable (recubrimientos y elementos de protección) reduce este efecto."
+      "explanation": "Son las regiones con menor atenuación entre los picos de OH⁻: la primera ventana (850 nm, fibras multimodo), la segunda (1310 nm) y la tercera (1550 nm, mínima pérdida)."
     },
     {
-      "prompt": "¿Qué rasgo de diseño hace que una fibra sea «insensible a curvaturas» (por ejemplo, las de tipo ITU-T G.657)?",
+      "prompt": "¿Por qué la ventana de 1550 nm presenta la menor atenuación de la fibra de sílice?",
       "options": [
         {
           "id": "a",
-          "text": "Un perfil de índice que confina mejor la luz, por ejemplo con una trinchera (foso) de bajo índice en el revestimiento"
+          "text": "Porque el esparcimiento de Rayleigh ya ha disminuido mucho y la absorción infrarroja todavía es pequeña, lo que da un mínimo cercano a 0,2 dB/km"
         },
         {
           "id": "b",
-          "text": "Un núcleo de diámetro mucho mayor"
+          "text": "Porque a 1550 nm no hay esparcimiento de ningún tipo"
         },
         {
           "id": "c",
-          "text": "Un revestimiento con mayor índice de refracción que el núcleo"
+          "text": "Porque la absorción ultravioleta alcanza allí su máximo"
         },
         {
           "id": "d",
-          "text": "Eliminar el recubrimiento protector"
+          "text": "Porque a 1550 nm el vidrio deja de ser sílice"
         }
       ],
       "correctOptionId": "a",
-      "explanation": "Con mejor confinamiento del modo, la luz resiste curvas más cerradas (útil en instalaciones dentro de edificios y FTTH). Un revestimiento de índice mayor que el del núcleo impediría el guiado."
+      "explanation": "Es el compromiso entre dos mecanismos opuestos: Rayleigh decrece con λ y la absorción infrarroja crece con λ. Su suma tiene un mínimo cerca de 1550 nm."
     },
     {
-      "prompt": "Las imperfecciones de la guía (variaciones de diámetro del núcleo, burbujas, tensiones residuales) producen pérdidas porque:",
+      "prompt": "Un valor típico de atenuación de una fibra monomodo estándar a 1550 nm es:",
       "options": [
         {
           "id": "a",
-          "text": "Acoplan parte de la potencia de los modos guiados a modos radiados o de fuga"
+          "text": "Aproximadamente 0,2 dB/km"
         },
         {
           "id": "b",
-          "text": "Aumentan la absorción de OH⁻"
+          "text": "Aproximadamente 2 dB/km"
         },
         {
           "id": "c",
-          "text": "Reducen el índice del revestimiento"
+          "text": "Aproximadamente 20 dB/km"
         },
         {
           "id": "d",
-          "text": "Elevan la temperatura de fusión del vidrio"
+          "text": "Aproximadamente 0,002 dB/km"
         }
       ],
       "correctOptionId": "a",
-      "explanation": "Cualquier variación a lo largo de la fibra rompe las condiciones ideales de guiado y transfiere energía a modos que no se propagan por el núcleo."
+      "explanation": "A 1310 nm es algo mayor (≈0,35 dB/km) y en 850 nm, en fibras multimodo, ronda los 2–3 dB/km."
     }
   ]
 }
